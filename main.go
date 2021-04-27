@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/tomvictor.try_go/models"
+	"github.com/Tomvictor/try_go/models"
 )
 
 func main() {
