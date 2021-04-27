@@ -37,4 +37,8 @@ func main() {
 
 	lastname = "Victor"
 	fmt.Println(ptr, *ptr)
+
+	const pi float32 = 3.14
+	fmt.Println(pi)
+	fmt.Println(pi + 1.2)
 }
