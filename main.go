@@ -84,4 +84,27 @@ func main() {
 	fmt.Println(m)
 	delete(m, "foo")
 	fmt.Println(m)
+
+	// Struct
+	type user struct {
+		ID        int
+		FirstName string
+		LastName  string
+	}
+
+	var u user
+	u.ID = 1
+	u.FirstName = "Tom"
+	u.LastName = "Victor"
+
+	fmt.Println(u)
+	fmt.Println(u.FirstName)
+
+	u2 := user{
+		ID:        2,
+		FirstName: "Don",
+		LastName:  "Victor",
+	}
+
+	fmt.Println(u2)
 }
