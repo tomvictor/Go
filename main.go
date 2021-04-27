@@ -22,4 +22,19 @@ func main() {
 
 	r, im := real(c), imag(c)
 	fmt.Println(r, im)
+
+	var name *string = new(string)
+
+	*name = "Jessie"
+
+	fmt.Println(name)
+	fmt.Println(*name)
+
+	lastname := "Vithayathil"
+
+	ptr := &lastname
+	fmt.Println(ptr, *ptr)
+
+	lastname = "Victor"
+	fmt.Println(ptr, *ptr)
 }
