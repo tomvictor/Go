@@ -9,13 +9,16 @@ const (
 )
 
 func main() {
+	// Int
 	var i int
 	i = 42
 	fmt.Println(i)
 
+	// float32
 	var f float32 = 3.14
 	fmt.Println(f)
 
+	// string
 	firstName := "Tom"
 	fmt.Println(firstName)
 
@@ -38,6 +41,8 @@ func main() {
 
 	lastname := "Vithayathil"
 
+	// Pointers
+
 	ptr := &lastname
 	fmt.Println(ptr, *ptr)
 
@@ -50,6 +55,8 @@ func main() {
 
 	fmt.Println(PUBLISHED, DRAFT, TRASH)
 
+	// Array
+
 	var arr [3]int
 
 	arr[0] = 1
@@ -61,4 +68,20 @@ func main() {
 	arr2 := [3]int{1, 2, 3}
 
 	fmt.Println(arr2)
+
+	// Slice
+	slice := []int{1, 2, 0}
+
+	fmt.Println(slice)
+	slice = append(slice, 6, 7, 8)
+	fmt.Println(slice)
+
+	// Map
+	m := map[string]int{"foo": 42}
+	fmt.Println(m)
+	fmt.Println(m["foo"])
+	m["foo"] = 27
+	fmt.Println(m)
+	delete(m, "foo")
+	fmt.Println(m)
 }
