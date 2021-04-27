@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+const (
+	PUBLISHED = iota
+	DRAFT
+	TRASH
+)
+
 func main() {
 	var i int
 	i = 42
@@ -41,4 +47,6 @@ func main() {
 	const pi float32 = 3.14
 	fmt.Println(pi)
 	fmt.Println(pi + 1.2)
+
+	fmt.Println(PUBLISHED, DRAFT, TRASH)
 }
