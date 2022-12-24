@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/tomvictor/try_go/models/controllers"
+	"github.com/tomvictor/try_go/controllers"
 )
 
 func main() {
