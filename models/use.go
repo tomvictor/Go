@@ -7,6 +7,6 @@ type User struct {
 }
 
 var (
-	user   []*User
-	nextID int32 = 1
+	users  []*User
+	nextID = 1
 )

@@ -1,3 +1,3 @@
-module github.com/Tomvictor/try_go
+module github.com/tomvictor/try_go
 
-go 1.13
+go 1.19
