@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 
-	"github.com/tomvictor/try_go/models"
+	"github.com/tomvictor/try_go/models/controllers"
 )
 
 func main() {
-	u := models.User{
-		ID:        1,
-		FirstName: "Tom",
-		LastName:  "Victor",
-	}
-	fmt.Println(u)
+	fmt.Println("Server running in port 3000")
+	controllers.RegisterController()
+	http.ListenAndServe(":3000", nil)
 }
