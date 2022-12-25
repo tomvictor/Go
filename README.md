@@ -10,5 +10,5 @@ Building Web service
 
 `./webservice`
 
-## [Go: The Complete Developer's Guide (Golang)] (https://www.udemy.com/course/go-the-complete-developers-guide/) Udemy couse by Stephen Grider
+## [Go: The Complete Developer's Guide (Golang)](https://www.udemy.com/course/go-the-complete-developers-guide/) Udemy couse by Stephen Grider
 
