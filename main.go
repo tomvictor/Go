@@ -9,6 +9,6 @@ import (
 
 func main() {
 	fmt.Println("Server running in port 3000")
-	controllers.RegisterController()
+	controllers.RegisterControllers()
 	http.ListenAndServe(":3000", nil)
 }
