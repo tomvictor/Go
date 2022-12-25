@@ -4,6 +4,6 @@
 
 Building Web service
 
-`cd webservice
-go build  github.com/tomvictor/try_go/webservice
-./webservice`
+`cd webservice`
+`go build  github.com/tomvictor/try_go/webservice`
+`./webservice`
