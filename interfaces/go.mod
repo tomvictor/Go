@@ -1,3 +1,3 @@
-module github.com/tomvictor/try_go/interfaces
+module interfaces
 
 go 1.19
