@@ -8,14 +8,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Please select an option")
-	fmt.Println("print (1) to display menu")
-
-	in := bufio.NewReader(os.Stdin)
-	choice, _ := in.ReadString('\n')
-	choice = strings.TrimSpace(choice)
-	fmt.Println(choice)
-
 	type menuItem struct {
 		name   string
 		prices map[string]float64
@@ -38,12 +30,35 @@ func main() {
 			},
 		},
 	}
+loop:
 
-	for _, item := range menu {
-		fmt.Println(item.name)
-		fmt.Println(strings.Repeat("-", 10))
-		for key, value := range item.prices {
-			fmt.Printf("\t%10s%10.2f\n", key, value)
+	for {
+
+		in := bufio.NewReader(os.Stdin)
+
+		fmt.Println("Please select an option")
+		fmt.Println("1) Display menu")
+		fmt.Println("2) Add item")
+		fmt.Println("q) quit")
+		choice, _ := in.ReadString('\n')
+
+		switch strings.TrimSpace(choice) {
+		case "1":
+			for _, item := range menu {
+				fmt.Println(item.name)
+				fmt.Println(strings.Repeat("-", 10))
+				for key, value := range item.prices {
+					fmt.Printf("\t%10s%10.2f\n", key, value)
+				}
+			}
+		case "2":
+			name, _ := in.ReadString('\n')
+			menu = append(menu, menuItem{name: name, prices: make(map[string]float64)})
+		case "q":
+			break loop
+		default:
+			fmt.Println("Unknown option")
 		}
 	}
+
 }
