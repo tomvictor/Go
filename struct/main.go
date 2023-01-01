@@ -1,20 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 func main() {
-	fmt.Println("Please select an option")
-	fmt.Println("print (1) to display menu")
-
-	in := bufio.NewReader(os.Stdin)
-	choice, _ := in.ReadString('\n')
-	choice = strings.TrimSpace(choice)
-	fmt.Println(choice)
 
 	type menuItem struct {
 		name   string
