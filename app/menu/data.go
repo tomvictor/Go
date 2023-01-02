@@ -4,7 +4,7 @@ package menu
 // its go's way of local packaging
 // Also menuItem type is fetched from the logic file
 // tht means, every files in a package is a single file
-var menu = []menuItem{
+var data = menu{
 	{
 		name: "Coffe",
 		prices: map[string]float64{
