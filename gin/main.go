@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// go: embed public/*
+// go:embed public/*
 var f embed.FS
 
 func main() {

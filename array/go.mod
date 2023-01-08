@@ -1,3 +1,3 @@
-module github.com/tomvictor/array
+module array
 
 go 1.19
