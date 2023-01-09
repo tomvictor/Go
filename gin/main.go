@@ -21,6 +21,9 @@ func main() {
 	router.GET("/employee", func(c *gin.Context) {
 		c.File("./public/index.html")
 	})
+	router.POST("employee", func(c *gin.Context) {
+		c.String(http.StatusOK, "New Request accepted")
+	})
 
 	log.Fatal(router.Run(":3000"))
 }
