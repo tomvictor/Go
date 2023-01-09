@@ -18,5 +18,9 @@ func main() {
 	router.Static("/static", "./public")
 	router.StaticFS("/fs", http.FileSystem(http.FS(f)))
 
+	router.GET("/employee", func(c *gin.Context) {
+		c.File("./public/index.html")
+	})
+
 	log.Fatal(router.Run(":3000"))
 }
