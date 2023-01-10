@@ -7,23 +7,14 @@ import (
 )
 
 func main() {
-	fmt.Println("golang slice sample")
+	fmt.Println("Array samples in golang")
 
-	var s []string
+	s := []string{"a", "b", "c"}
 	fmt.Println(s)
-	s = []string{"Chai", "Tea", "Cofee"}
+	s = append(s, "d", "e")
 	fmt.Println(s)
 
-	v := s
-	fmt.Println(v)
-	v[1] = "Chai"
-	fmt.Println(s, v) //[Chai Chai Cofee] [Chai Chai Cofee]
-
-	// append
-	s = append(s, "Hot-Chocolate", "Hot-Milk")
-	fmt.Println(s)
-	// Deletion
-	slices.Delete(s, 1, 2)
+	s = slices.Delete(s, 1, 2)
 	fmt.Println(s)
 
 }

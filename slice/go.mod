@@ -1,5 +1,5 @@
-module goslice
+module slice
 
 go 1.19
 
-require golang.org/x/exp v0.0.0-20221230185412-738e83a70c30 // indirect
+require golang.org/x/exp v0.0.0-20230108222341-4b8118a2686a // indirect
