@@ -17,5 +17,12 @@ func main() {
 		c.String(http.StatusOK, "New Request accepted")
 	})
 
+	router.GET("employee/:username/*rest", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"username": c.Param("username"),
+			"rest":     c.Param("rest"),
+		})
+	})
+
 	log.Fatal(router.Run(":3000"))
 }
