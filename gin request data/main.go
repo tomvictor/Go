@@ -11,7 +11,7 @@ import (
 )
 
 type TimeOffRequest struct {
-	Date   time.Time `form:"date" binding:"-" time_format:2006-01-02`
+	Date   time.Time `form:"date" binding:"-" time_format:"2006-01-02"`
 	Amount float64   `form:"amount" binding:"-"`
 }
 
