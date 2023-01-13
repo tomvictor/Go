@@ -10,6 +10,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type TimeOffRequest struct {
+	Date   time.Time `form:"date" binding:"-" time_format:2006-01-02`
+	Amount float64   `form:"amount" binding:"-"`
+}
+
 func main() {
 	fmt.Println("Gin Request data Demo")
 	r := gin.Default()
@@ -37,16 +42,29 @@ func main() {
 		ctx.File("./public/employee.html")
 	})
 
-	r.POST("employee", func(ctx *gin.Context) {
-		date := ctx.PostForm("date")
-		amount := ctx.PostForm("amount")
-		username := ctx.DefaultPostForm("username", "tom")
+	// Normal method/Simple
+	// r.POST("employee", func(ctx *gin.Context) {
+	// 	date := ctx.PostForm("date")
+	// 	amount := ctx.PostForm("amount")
+	// 	username := ctx.DefaultPostForm("username", "tom")
 
-		ctx.IndentedJSON(http.StatusOK, gin.H{
-			"date":     date,
-			"amount":   amount,
-			"username": username,
-		})
+	// 	ctx.IndentedJSON(http.StatusOK, gin.H{
+	// 		"date":     date,
+	// 		"amount":   amount,
+	// 		"username": username,
+	// 	})
+	// })
+
+	// Data Binding
+
+	r.POST("employee", func(ctx *gin.Context) {
+		var timeOffRequest TimeOffRequest
+
+		if err := ctx.ShouldBind(&timeOffRequest); err == nil {
+			ctx.JSON(http.StatusOK, timeOffRequest)
+		} else {
+			ctx.String(http.StatusInternalServerError, err.Error())
+		}
 	})
 
 	log.Fatal(r.Run(":3000"))
