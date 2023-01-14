@@ -11,8 +11,8 @@ import (
 )
 
 type TimeOffRequest struct {
-	Date   time.Time `form:"date" binding:"-" time_format:"2006-01-02"`
-	Amount float64   `form:"amount" binding:"-"`
+	Date   time.Time `json:"date" form:"date" binding:"-" time_format:"2006-01-02"`
+	Amount float64   `json:"amount" form:"amount" binding:"-"`
 }
 
 func main() {
@@ -58,6 +58,18 @@ func main() {
 	// Data Binding
 
 	r.POST("employee", func(ctx *gin.Context) {
+		var timeOffRequest TimeOffRequest
+
+		if err := ctx.ShouldBind(&timeOffRequest); err == nil {
+			ctx.JSON(http.StatusOK, timeOffRequest)
+		} else {
+			ctx.String(http.StatusInternalServerError, err.Error())
+		}
+	})
+
+	apiGroups := r.Group("/api")
+
+	apiGroups.POST("timefoff", func(ctx *gin.Context) {
 		var timeOffRequest TimeOffRequest
 
 		if err := ctx.ShouldBind(&timeOffRequest); err == nil {
