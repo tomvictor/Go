@@ -8,17 +8,30 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
+	"github.com/go-playground/validator/v10"
 )
 
 type TimeOffRequest struct {
-	Date   time.Time `json:"date" form:"date" binding:"-" time_format:"2006-01-02"`
-	Amount float64   `json:"amount" form:"amount" binding:"-"`
+	Date   time.Time `json:"date" form:"date" binding:"required,future" time_format:"2006-01-02"`
+	Amount float64   `json:"amount" form:"amount" binding:"required,gt=0"`
+}
+
+var ValidatorFuture validator.Func = func(fl validator.FieldLevel) bool {
+	date, ok := fl.Field().Interface().(time.Time)
+	if ok {
+		return date.After(time.Now())
+	}
+	return true
 }
 
 func main() {
 	fmt.Println("Gin Request data Demo")
 	r := gin.Default()
 
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+		v.RegisterValidation("future", ValidatorFuture)
+	}
 	// Query data using GET method
 
 	// Sample query
@@ -69,7 +82,13 @@ func main() {
 
 	apiGroups := r.Group("/api")
 
-	apiGroups.POST("timefoff", func(ctx *gin.Context) {
+	// Sample Payload
+	// {
+	// 	"date": "2023-12-01T00:00:00Z",
+	// 	"amount": 5
+	// }
+
+	apiGroups.POST("timeoff", func(ctx *gin.Context) {
 		var timeOffRequest TimeOffRequest
 
 		if err := ctx.ShouldBind(&timeOffRequest); err == nil {
