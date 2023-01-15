@@ -6,6 +6,7 @@ func main() {
 	fmt.Println("Golang working with maps")
 
 	var m map[string][]string
+
 	fmt.Println(m)
 	m = map[string][]string{
 		"coffee": {"Coffee", "Coffee-Late"},
