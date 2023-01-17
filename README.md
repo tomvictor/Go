@@ -5,3 +5,7 @@
 * [Go: The Complete Developer's Guide (Golang)](https://www.udemy.com/course/go-the-complete-developers-guide/)
 * [Go Fundamentals](https://app.pluralsight.com/library/courses/fundamentals-go/table-of-contents)
 
+Build for intel macs
+
+`env GOOS=darwin GOARCH=amd64 go build main.go`
+
