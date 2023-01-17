@@ -6,6 +6,7 @@ func main() {
 	fmt.Println("Golang working with maps")
 
 	var m map[string][]string
+	var n map[string][]any
 
 	fmt.Println(m)
 	m = map[string][]string{
