@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator/v10"
@@ -28,6 +29,7 @@ var ValidatorFuture validator.Func = func(fl validator.FieldLevel) bool {
 func main() {
 	fmt.Println("Gin Request data Demo")
 	r := gin.Default()
+	r.Use(gzip.Gzip(gzip.DefaultCompression))
 
 	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
 		v.RegisterValidation("future", ValidatorFuture)
