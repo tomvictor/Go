@@ -1,10 +1,33 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+
+// var Car struct {
+// 	id   int
+// 	name string
+// }
+
+type Car struct {
+	id   int
+	name string
+	// power  float32
+}
 
 func main() {
+	fmt.Println("Struct")
+
+	vw := Car{
+		id:   1,
+		name: "vw",
+	}
+	fmt.Println(vw)
+
+	mz := Car{
+		id:   2,
+		name: "Mazda",
+	}
+	fmt.Println(mz.name)
+	fmt.Println(mz)
 
 	type menuItem struct {
 		name   string
@@ -29,4 +52,5 @@ func main() {
 		},
 	}
 	fmt.Println(menu)
+
 }
