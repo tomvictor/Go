@@ -8,6 +8,8 @@ import (
 	"os"
 )
 
+const data_file_name = "proto.data"
+
 func main() {
 
 	//Create Proto Object
@@ -23,12 +25,24 @@ func main() {
 	//Print as string
 	fmt.Println(p.String())
 
-	//Write to disk
+	//Write buffer to disk
 	out, err := proto.Marshal(&p)
 	if err != nil {
 		log.Fatalln("Failed to encode address book:", err)
 	}
-	if err := os.WriteFile("proto.data", out, 0644); err != nil {
+	if err := os.WriteFile(data_file_name, out, 0644); err != nil {
 		log.Fatalln("Failed to write address book:", err)
 	}
+	fmt.Printf("Write success: %v\n", p)
+
+	// Read the existing user data.
+	in, err := os.ReadFile(data_file_name)
+	if err != nil {
+		log.Fatalln("Error reading file:", err)
+	}
+	user := &schema.Person{}
+	if err := proto.Unmarshal(in, user); err != nil {
+		log.Fatalln("Failed to parse address book:", err)
+	}
+	fmt.Printf("Read success: %v", user)
 }
