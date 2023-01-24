@@ -3,7 +3,7 @@ package user;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/tomvictor/protobuf/userpb";
+option go_package = "github.com/tomvictor/protobuf/schema";
 
 message Person {
   string name = 1;

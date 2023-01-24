@@ -1,4 +1,4 @@
-module protobuf
+module main
 
 go 1.19
 
