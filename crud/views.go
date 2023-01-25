@@ -8,6 +8,6 @@ func GetAllProducts(db *gorm.DB) []Product {
 	return products
 }
 
-func CreateProduct(db *gorm.DB, code string, price int) {
-	db.Create(&Product{Code: code, Price: uint(price)})
+func CreateProduct(db *gorm.DB, code string, price uint) {
+	db.Create(&Product{Code: code, Price: price})
 }
