@@ -34,8 +34,16 @@ func main() {
 	fmt.Println("Marshal to attribute value")
 	av, err := attributevalue.MarshalMap(newUser)
 	if err != nil {
-		log.Fatalf("unable struct to marshal attribute value")
+		log.Fatalf("unable struct to marshal attribute value, %v", err.Error())
 	}
 	fmt.Printf("%s\n", av["Id"])
 	fmt.Printf("%s\n", av["Name"])
+
+	dbUser := User{}
+
+	err = attributevalue.UnmarshalMap(av, &dbUser)
+	if err != nil {
+		log.Fatalf("Unable to unmarshal attribute value, %v", err.Error())
+	}
+	fmt.Printf("Unmashaled data: %+v\n", dbUser)
 }
