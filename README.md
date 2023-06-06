@@ -5,6 +5,7 @@
 ## https://go.dev/ref/spec
 ## https://go.dev/doc/effective_go
 ## https://go.dev/doc/
+## https://github.com/uber-go/guide/blob/master/style.md
 ## https://www.digitalocean.com/community/tutorials/how-to-use-contexts-in-go
 
 Commands
