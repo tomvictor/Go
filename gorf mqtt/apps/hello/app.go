@@ -6,7 +6,10 @@ import (
 
 func setup() error {
 	// Add setup here
-	MqRunner()
+	mqttChannel := make(chan string)
+	mqttClient := MqRunner(mqttChannel)
+	go mqttPublisher(mqttClient)
+	go mqttPrintMsg(mqttChannel)
 	return nil
 }
 
