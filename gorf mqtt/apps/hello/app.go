@@ -6,6 +6,7 @@ import (
 
 func setup() error {
 	// Add setup here
+	MqRunner()
 	return nil
 }
 
